@@ -1,0 +1,25 @@
+self.__stack and self.__size are private variables. Remember that private variables are only allowed to be accessed INSIDE the class itself. 
+Why is it important that these variables are private?
+  Ensures that they cant be modified outside the class, by keeping them private we maintain control over the stack and prevents accidental modifications
+
+
+The __is_empty() method is private so it is designed to only be used inside the class. Where should we use this method? Explain your reasoning.
+  Used inside the pop and top classes, we avoid duplicating the same condition in multiple methods. It also reflects empty logic check across the entire class.
+
+
+When designing data structures, it is often important that the class is designed to raise errors in certain circumstances. 
+This is different from designing resources for the average user where the user should never see an error message. 
+Why is it important that we raise errors in the resources that we design for a programmer to use?
+  It gives clear feedback when the data structure is being used incorrectly. Errors help identify problems early in development.
+
+
+When we use an array (list) as the basis of our stack, we set things up so that the top of the stack is the end of the list. 
+Why is this more efficient than setting the top to the front of the list? Use measures of complexity and big-o notation in your response.
+  By using the end of list as the top of the stack, we improve performance and it has a time complexity of O(1), whilst removing at the top is O(n).
+
+
+Google the term “unit testing”. Summarize the definition/description here. How is unit testing incorporated in this lab? 
+Why is it important to this assignment?
+  Unit testing is the process of testing individual components or functions of a program to ensure they work as intended
+  We use it for our test in main.py, with pop, top, and push
+  It helps catch bugs in our code early, and ensures changes in code don't introduce more errors
