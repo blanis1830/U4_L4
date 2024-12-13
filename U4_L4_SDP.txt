@@ -1,0 +1,6 @@
+When will you push a new value into the stack?
+  if char in "({["
+When will you pop a value off the top of the stack?
+  if char in ")}]"
+Name TWO reasons that would cause a string to be labeled as unbalanced.
+  It may not be completed, for example ({}. Or its in the wrong place, like ({[])}

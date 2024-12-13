@@ -1,53 +1,29 @@
 # # Implementation & testing of the ArrayStack class
 
 from StackClass import ArrayStack
-from TEST_CODE import *
 import os
 
-'''
-Testing details can be found in TEST_CODE.py
-
-ENSURE ALL TESTS PASS BEFORE SUBMITTING
-
-IF COLORAMA NOT FOUND - ENTER INTO TERMINAL:
-pip install colorama
-'''
+def balanced(str):
+  stack = ArrayStack()
+  matching_brackets = {')': '(', ']' : '[', '}' : '{'}
+  for char in str:
+    if char in "({[":
+      stack.push(char)
+    elif char in ")}]":
+      if len(stack) == 0 or stack.pop() != matching_brackets[char]:
+        return False
+  return len(stack) == 0
 
 def main():
-    
-    testStack = ArrayStack()
+  test1 = "()(()){([()])}"
+  test2 = "((()(()){([()])}))"
+  test3 = ")(()){([()])]"
+  test4 = "({[])}"
+  test5 = "("
 
-    # TEST 1 - Test privacy
-    # BEFORE TESTING: implement __init__, __is_empty()
-    TEST_privacy(testStack)
-
-
-    # TEST 2 - Test stack creation
-    # BEFORE TESTING: implement __len__, __str__
-    TEST_new_stack(testStack)
-    
-
-    # TEST 3 - Test push
-    # BEFORE TESTING: implement .push()
-    TEST_push(testStack)
-
-
-    # TEST 4 - Test pop
-    # BEFORE TESTING: implement .pop()
-    TEST_pop(testStack)
-
-
-    # TEST 5 - Test top
-    # BEFORE TESTING: implement .top()
-    TEST_top(testStack)
-
-
-    # TEST 6 - Test docstrings
-    # BEFORE TESTING: implement all methods & docstrings
-    TEST_docs(testStack)
-
-
-
+  for test in [test1, test2, test3, test4, test5]:
+    result = "Balanced" if balanced(test) else "Unbalanced"
+    print(f"{test} - {result}")
 
 if __name__ == "__main__":
     os.system("clear")
